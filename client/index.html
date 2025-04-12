@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplayer Game</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Join Screen -->
+    <div id="join-screen" class="screen">
+        <div class="container">
+            <h1>Space Collectors</h1>
+            <div class="form-group">
+                <label for="player-name">Enter Your Name:</label>
+                <input type="text" id="player-name" maxlength="15" placeholder="Your name">
+            </div>
+            <button id="join-button">Join Game</button>
+            <div id="join-error" class="error-message"></div>
+            <div id="players-list">
+                <h3>Players:</h3>
+                <ul id="lobby-players"></ul>
+            </div>
+            <div id="host-controls" class="hidden">
+                <button id="start-button">Start Game</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen hidden">
+        <div id="game-container">
+            <div id="game-info">
+                <div id="timer">Time: <span id="time-value">120</span></div>
+                <div id="scores-container">
+                    <h3>Scores:</h3>
+                    <ul id="score-list"></ul>
+                </div>
+            </div>
+            <div id="game-area">
+                <!-- Players and collectibles will be added here dynamically -->
+            </div>
+            <div id="menu-button">☰</div>
+        </div>
+    </div>
+
+    <!-- Game Menu -->
+    <div id="game-menu" class="hidden">
+        <div class="menu-container">
+            <h2>Menu</h2>
+            <button id="resume-button">Resume Game</button>
+            <button id="pause-button">Pause Game</button>
+            <button id="quit-button">Quit Game</button>
+        </div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="game-over" class="screen hidden">
+        <div class="container">
+            <h1>Game Over</h1>
+            <div id="winner-display"></div>
+            <div id="final-scores">
+                <h3>Final Scores:</h3>
+                <ul id="final-score-list"></ul>
+            </div>
+            <button id="return-lobby">Return to Lobby</button>
+        </div>
+    </div>
+
+    <!-- Game Notifications -->
+    <div id="notification" class="hidden"></div>
+
+    <!-- Scripts -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/collectible.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
